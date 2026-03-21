@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="Fine-Grained Emotion Taxonomy for Humanoid Facial Imitation - Jingyi Zhong">
+  <meta name="description" content="A 22-class fine-grained emotion taxonomy with hybrid classification for realistic humanoid robot facial expression imitation via deep learning.">
+  <meta name="keywords" content="fine-grained emotion, facial expression, humanoid robot, action units, FACS, deep learning, emotion classification, X2CNet">
+  <meta name="author" content="Jingyi Zhong">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="University of Southampton">
+  <meta property="og:title" content="Fine-Grained Emotion Taxonomy for Humanoid Facial Imitation">
+  <meta property="og:description" content="A 22-class fine-grained emotion taxonomy with hybrid classification for realistic humanoid robot facial expression imitation.">
+
+  <meta name="citation_title" content="Humanoid Imitation of Facial Expressions through Deep Learning">
+  <meta name="citation_author" content="Zhong, Jingyi">
+  <meta name="citation_publication_date" content="2026">
+
+  <meta name="theme-color" content="#2563eb">
+
+  <title>Fine-Grained Emotion Taxonomy | X2CNet - Jingyi Zhong</title>
+
+  <link rel="icon" type="image/svg+xml" href="static/images/uos-crest.svg">
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Humanoid Imitation of Facial Expressions through Deep Learning",
+    "description": "A 22-class fine-grained emotion taxonomy with hybrid AU-based classification for humanoid robot facial imitation.",
+    "author": [{
+      "@type": "Person",
+      "name": "Jingyi Zhong",
+      "affiliation": { "@type": "Organization", "name": "University of Southampton" }
+    }],
+    "datePublished": "2026",
+    "keywords": ["fine-grained emotion", "facial expression", "humanoid robot", "action units", "FACS", "deep learning"]
+  }
+  </script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+
+  <main id="main-content">
+
+  <!-- Hero -->
+  <section class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <div class="uos-logo-wrap">
+              <img src="static/images/uos-logo.svg" alt="University of Southampton" class="uos-logo">
+            </div>
+            <h1 class="title is-1 publication-title">Humanoid Imitation of Facial Expressions through Deep Learning</h1>
+            <div class="publication-authors author-large">
+              <span class="author-block"><a href="https://futabanov16.github.io/" target="_blank">Jingyi Zhong</a></span>
+            </div>
+            <div class="publication-authors author-large" style="margin-top:0.25rem">
+              <span class="author-block">Supervisor: <a href="https://zhiwu-huang.github.io/" target="_blank">Zhiwu Huang</a></span> &middot;
+              <span class="author-block">Second Examiner: <a href="https://www.southampton.ac.uk/people/5z9bmb/professor-david-thomas" target="_blank">David Thomas</a></span>
+            </div>
+
+            <p class="tldr-text">
+              A fine-grained emotion labelling framework that maps human facial motion to humanoid robot control and classifies each frame into 22 nuanced emotion categories.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero teaser">
+    <div class="container is-max-widescreen">
+      <div class="hero-body">
+        <div class="teaser-single">
+          <video autoplay controls muted loop playsinline preload="metadata">
+            <source src="static/videos/meee_comparison.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="interactive-cta">
+          <div class="interactive-buttons">
+            <button class="interactive-btn interactive-btn-install" onclick="showInstallGuide()">
+              <i class="fas fa-download"></i>
+              Install &amp; Run Demo
+            </button>
+            <button class="interactive-btn interactive-btn-local" onclick="launchInteractive()">
+              <i class="fas fa-play-circle"></i>
+              Launch (Author's Machine)
+            </button>
+          </div>
+          <div class="interactive-note">
+            <p>Keep a straight face when it starts &mdash; the first few frames lock your "neutral" expression as the baseline. If you launch mid-yawn, the robot will think that's your resting face.</p>
+            <div class="key-hints">
+              <span><kbd>R</kbd> Recalibrate</span>
+              <span><kbd>P</kbd> Pause</span>
+              <span><kbd>+</kbd><kbd>-</kbd> Smoothing</span>
+              <span><kbd>Q</kbd> Quit</span>
+            </div>
+            <p class="local-only-note"><strong>Install &amp; Run</strong> downloads a one-click script (~1.3 GB weights). Requires Python 3.10+, a CUDA GPU, and a webcam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install Guide Modal -->
+  <div class="modal-overlay" id="installModal" onclick="closeInstallGuide(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeInstallGuide()">&times;</button>
+      <h3>Quick Setup</h3>
+      <p>Open a terminal and paste:</p>
+      <div class="copy-block">
+        <code id="installCmd">git clone https://github.com/futabanov16/Interactive_Ameca.git && cd Interactive_Ameca && setup.bat</code>
+        <button class="copy-cmd-btn" onclick="copyCmd()"><i class="fas fa-copy"></i></button>
+      </div>
+      <p class="modal-sub">This will clone the repo, install dependencies, download ~1.3 GB of model weights, and launch the demo automatically.</p>
+      <div class="modal-reqs">
+        <span><i class="fas fa-check-circle"></i> Python 3.10+</span>
+        <span><i class="fas fa-check-circle"></i> NVIDIA GPU + CUDA</span>
+        <span><i class="fas fa-check-circle"></i> Webcam</span>
+        <span><i class="fas fa-check-circle"></i> Git</span>
+      </div>
+      <a href="https://github.com/futabanov16/Interactive_Ameca" target="_blank" class="modal-repo-link">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Pipeline -->
+  <section class="section" id="pipeline">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Three-Stage Pipeline</h2>
+
+      <div class="pipeline-flow">
+        <div class="pipeline-stage">
+          <div class="stage-number">A</div>
+          <div class="stage-icon"><i class="fas fa-video"></i></div>
+          <h3>Motion Transfer</h3>
+          <p>LivePortrait transfers human facial motion onto a robot source image via keypoint warping and SPADE generation.</p>
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="pipeline-stage">
+          <div class="stage-number">B</div>
+          <div class="stage-icon"><i class="fas fa-robot"></i></div>
+          <h3>X2Control Regression</h3>
+          <p>A ResNet-18 mapping network converts each synthesised frame into a 30-dimensional servo control vector.</p>
+        </div>
+        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="pipeline-stage stage-contribution">
+          <div class="stage-number">C</div>
+          <div class="stage-icon"><i class="fas fa-brain"></i></div>
+          <h3>Emotion Classification</h3>
+          <p>Control vectors are mapped to AU intensities, then classified into 22 fine-grained emotions via a hybrid classifier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emotion Taxonomy -->
+  <section class="section hero is-light" id="taxonomy">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">22-Class Fine-Grained Emotion Taxonomy</h2>
+      <p class="has-text-centered" style="color:var(--text-secondary);margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto">
+        A hierarchical taxonomy grounded in FACS Action Units, extending beyond the 7 basic emotions to capture nuanced compound expressions.
+      </p>
+
+      <!-- Basic Emotions -->
+      <div class="taxonomy-tier">
+        <h3 class="tier-title"><span class="tier-badge basic-badge">Tier 1</span> Basic Emotions (7)</h3>
+        <div class="emotion-cards">
+          <div class="emotion-card basic-card">
+            <div class="emotion-name">Neutral</div>
+            <div class="emotion-aus">No AU activation</div>
+          </div>
+          <div class="emotion-card basic-card">
+            <div class="emotion-name">Happy</div>
+            <div class="emotion-aus">AU6 + AU12 + AU25</div>
+            <div class="emotion-desc">Cheek raise, lip corner pull, lips part</div>
+          </div>
+          <div class="emotion-card basic-card">
+            <div class="emotion-name">Sad</div>
+            <div class="emotion-aus">AU1 + AU4 + AU15</div>
+            <div class="emotion-desc">Inner brow raise, brow lower, lip corner depress</div>
+          </div>
+          <div class="emotion-card basic-card">
+            <div class="emotion-name">Fearful</div>
+            <div class="emotion-aus">AU1 + AU4 + AU20 + AU25</div>
+            <div class="emotion-desc">Brow raise, brow lower, lip stretch, lips part</div>
+          </div>
+          <div class="emotion-card basic-card">
+            <div class="emotion-name">Angry</div>
+            <div class="emotion-aus">AU4 + AU7 + AU24</div>
+            <div class="emotion-desc">Brow lower, lid tightener, lip press</div>
+          </div>
+          <div class="emotion-card basic-card">
+            <div class="emotion-name">Surprised</div>
+            <div class="emotion-aus">AU1 + AU2 + AU25 + AU26</div>
+            <div class="emotion-desc">Brow raise, outer brow raise, lips part, jaw drop</div>
+          </div>
+          <div class="emotion-card basic-card">
+            <div class="emotion-name">Disgusted</div>
+            <div class="emotion-aus">AU9 + AU10 + AU17</div>
+            <div class="emotion-desc">Nose wrinkle, upper lip raise, chin raise</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compound Emotions -->
+      <div class="taxonomy-tier">
+        <h3 class="tier-title"><span class="tier-badge compound-badge">Tier 2</span> Compound Emotions (10)</h3>
+        <p class="tier-desc">Combinations of two basic emotions, exhibiting AU patterns from both constituent emotions simultaneously.</p>
+        <div class="emotion-cards">
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Sadly Fearful</div>
+            <div class="emotion-aus">AU1 + AU4 + AU15 + AU20</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Sadly Angry</div>
+            <div class="emotion-aus">AU1 + AU4 + AU7 + AU15</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Sadly Surprised</div>
+            <div class="emotion-aus">AU1 + AU4 + AU15 + AU25</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Sadly Disgusted</div>
+            <div class="emotion-aus">AU4 + AU9 + AU10 + AU15</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Fearfully Angry</div>
+            <div class="emotion-aus">AU1 + AU4 + AU7 + AU20</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Fearfully Surprised</div>
+            <div class="emotion-aus">AU1 + AU2 + AU4 + AU20 + AU25</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Fearfully Disgusted</div>
+            <div class="emotion-aus">AU1 + AU4 + AU9 + AU20</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Angry Surprised</div>
+            <div class="emotion-aus">AU4 + AU7 + AU25 + AU26</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Angrily Disgusted</div>
+            <div class="emotion-aus">AU4 + AU7 + AU9 + AU10</div>
+          </div>
+          <div class="emotion-card compound-card">
+            <div class="emotion-name">Disgust Surprised</div>
+            <div class="emotion-aus">AU1 + AU2 + AU9 + AU25</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional States -->
+      <div class="taxonomy-tier">
+        <h3 class="tier-title"><span class="tier-badge additional-badge">Tier 3</span> Additional States (5)</h3>
+        <p class="tier-desc">Complex cognitive-emotional states that go beyond simple combinations.</p>
+        <div class="emotion-cards">
+          <div class="emotion-card additional-card">
+            <div class="emotion-name">Awed</div>
+            <div class="emotion-aus">AU1 + AU2 + AU5 + AU25</div>
+            <div class="emotion-desc">Wide eyes, raised brows, open mouth</div>
+          </div>
+          <div class="emotion-card additional-card">
+            <div class="emotion-name">Appalled</div>
+            <div class="emotion-aus">AU4 + AU9 + AU10</div>
+            <div class="emotion-desc">Lowered brows, nose wrinkle, shocked disgust</div>
+          </div>
+          <div class="emotion-card additional-card">
+            <div class="emotion-name">Hatred</div>
+            <div class="emotion-aus">AU4 + AU7 + AU10</div>
+            <div class="emotion-desc">Brow lower, lid tighten, lip raise (contempt)</div>
+          </div>
+          <div class="emotion-card additional-card">
+            <div class="emotion-name">Confused</div>
+            <div class="emotion-aus">AU1 + AU2 + AU4 + AU7</div>
+            <div class="emotion-desc">Mixed brow signals, asymmetric tightening</div>
+          </div>
+          <div class="emotion-card additional-card">
+            <div class="emotion-name">Skeptical</div>
+            <div class="emotion-aus">AU4 + AU14 + AU7</div>
+            <div class="emotion-desc">Brow lower, dimpler, lid tighten</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Gallery -->
+  <section class="section" id="gallery">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 has-text-centered">Expression Gallery</h2>
+      <p class="has-text-centered" style="color:var(--text-secondary);margin-bottom:1.5rem">
+        Side-by-side comparisons: driving video (left) vs. synthesised robot output (right).
+      </p>
+
+      <div class="gallery-filters has-text-centered" style="margin-bottom:2rem">
+        <button class="gallery-filter active" data-filter="all">All</button>
+        <button class="gallery-filter" data-filter="basic">Basic</button>
+        <button class="gallery-filter" data-filter="compound">Compound</button>
+        <button class="gallery-filter" data-filter="additional">Additional</button>
+      </div>
+
+      <div class="video-gallery video-gallery-wide" id="videoGallery">
+        <div class="gallery-item" data-category="basic">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/smile.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion basic-bg">Happy</span></div>
+        </div>
+        <div class="gallery-item" data-category="basic">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/sad.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion basic-bg">Sad</span></div>
+        </div>
+        <div class="gallery-item" data-category="basic">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/angry.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion basic-bg">Angry</span></div>
+        </div>
+        <div class="gallery-item" data-category="basic">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/surprised.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion basic-bg">Surprised</span></div>
+        </div>
+        <div class="gallery-item" data-category="additional">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/awed.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion additional-bg">Awed</span></div>
+        </div>
+        <div class="gallery-item" data-category="additional">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/hatred.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion additional-bg">Contempt</span></div>
+        </div>
+        <div class="gallery-item" data-category="additional">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/confused.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion additional-bg">Confused</span></div>
+        </div>
+        <div class="gallery-item" data-category="additional">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/skeptical.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion additional-bg">Skeptical</span></div>
+        </div>
+        <div class="gallery-item" data-category="compound">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/sadly_angry.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion compound-bg">Sadly Angry</span></div>
+        </div>
+        <div class="gallery-item" data-category="basic">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/expression1.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion basic-bg">Expression</span></div>
+        </div>
+        <div class="gallery-item" data-category="basic">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="static/videos/expression2.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label"><span class="gallery-emotion basic-bg">Expression</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              BSc Computer Science Final Year Project &middot; University of Southampton &middot; 2026
+            </p>
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+              Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  </body>
+</html>

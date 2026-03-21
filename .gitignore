@@ -1,0 +1,6 @@
+x2cnet/
+x2cnet-interactive/
+__pycache__/
+*.pyc
+.DS_Store
+CLAUDE.md
