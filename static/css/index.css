@@ -669,6 +669,83 @@ code {
   .hero-body { padding: 3rem 0.75rem 2rem; }
 }
 
+.au-explainer {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  padding: 1rem 1.5rem;
+  background: rgba(37, 99, 235, 0.06);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  text-align: left !important;
+}
+
+.au-explainer a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.au-explainer a:hover {
+  text-decoration: underline;
+}
+
+.acknowledgements-text {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.acknowledgements-text a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.acknowledgements-text a:hover {
+  text-decoration: underline;
+}
+
+.references-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reference-item {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.ref-number {
+  font-weight: 600;
+  color: var(--primary-color);
+  white-space: nowrap;
+  min-width: 2rem;
+}
+
+.ref-text {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.ref-link {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ref-link:hover {
+  text-decoration: underline;
+}
+
 @media print {
   .site-nav, .scroll-to-top { display: none; }
   .hero, .section { animation: none; }

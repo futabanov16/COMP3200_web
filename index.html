@@ -189,8 +189,11 @@
   <section class="section hero is-light" id="taxonomy">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">22-Class Fine-Grained Emotion Taxonomy</h2>
-      <p class="has-text-centered" style="color:var(--text-secondary);margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto">
+      <p class="has-text-centered" style="color:var(--text-secondary);margin-bottom:1rem;max-width:700px;margin-left:auto;margin-right:auto">
         A hierarchical taxonomy grounded in FACS Action Units, extending beyond the 7 basic emotions to capture nuanced compound expressions.
+      </p>
+      <p class="au-explainer has-text-centered">
+        <strong>Action Units (AUs)</strong> are the building blocks of facial expressions defined by the <a href="https://imotions.com/blog/learning/research-fundamentals/facial-action-coding-system/" target="_blank">Facial Action Coding System (FACS)</a>. Each AU corresponds to a specific facial muscle movement &mdash; for example, AU12 is the lip corner pull that produces a smile. Every emotion below is defined by its unique combination of AUs.
       </p>
 
       <!-- Basic Emotions -->
@@ -403,6 +406,46 @@
     </div>
   </section>
 
+
+  <!-- Acknowledgements -->
+  <section class="section hero is-light" id="acknowledgements">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Acknowledgements</h2>
+      <div class="content acknowledgements-text">
+        <p>
+          This project builds upon the <strong>X2CNet</strong> framework and the <strong>X2C dataset</strong> <a href="https://arxiv.org/abs/2505.11146" target="_blank">[1]</a>, which provides the three-stage pipeline for transferring human facial expressions to humanoid robots via 30-dimensional control vectors. Our fine-grained emotion taxonomy extends this pipeline with a semantic interpretation layer.
+        </p>
+        <p>
+          The emotion classification system is grounded in the <strong>Facial Action Coding System (FACS)</strong> <a href="https://imotions.com/blog/learning/research-fundamentals/facial-action-coding-system/" target="_blank">[3]</a>, which defines the Action Unit vocabulary used to characterise each of our 22 emotion categories. The AU-based pattern matching stream of our hybrid classifier follows the conventions established by <strong>EmotioNet</strong> <a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Benitez-Quiroz_EmotioNet_An_Accurate_CVPR_2016_paper.pdf" target="_blank">[2]</a>, which demonstrated that compound facial expressions can be reliably annotated through AU activation patterns at scale.
+        </p>
+      </div>
+
+      <h3 class="title is-5 has-text-centered" style="margin-top:2rem">References</h3>
+      <div class="references-list">
+        <div class="reference-item">
+          <span class="ref-number">[1]</span>
+          <div class="ref-text">
+            P. Li, L. Cao, X.-M. Wu, R. Yang, and X. Yu, &ldquo;X2C: A Dataset Featuring Nuanced Facial Expressions for Realistic Humanoid Imitation,&rdquo; <em>arXiv preprint arXiv:2505.11146</em>, 2025.
+            <a href="https://arxiv.org/abs/2505.11146" target="_blank" class="ref-link"><i class="fas fa-external-link-alt"></i> arXiv</a>
+          </div>
+        </div>
+        <div class="reference-item">
+          <span class="ref-number">[2]</span>
+          <div class="ref-text">
+            C. F. Benitez-Quiroz, R. Srinivasan, and A. M. Martinez, &ldquo;EmotioNet: An Accurate, Real-Time Algorithm for the Automatic Annotation of a Million Facial Expressions in the Wild,&rdquo; in <em>Proc. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, pp. 5562&ndash;5570, 2016.
+            <a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Benitez-Quiroz_EmotioNet_An_Accurate_CVPR_2016_paper.pdf" target="_blank" class="ref-link"><i class="fas fa-file-pdf"></i> PDF</a>
+          </div>
+        </div>
+        <div class="reference-item">
+          <span class="ref-number">[3]</span>
+          <div class="ref-text">
+            iMotions, &ldquo;Facial Action Coding System (FACS) &ndash; A Visual Guidebook,&rdquo; iMotions Research Fundamentals, 2024.
+            <a href="https://imotions.com/blog/learning/research-fundamentals/facial-action-coding-system/" target="_blank" class="ref-link"><i class="fas fa-external-link-alt"></i> Link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   </main>
 
